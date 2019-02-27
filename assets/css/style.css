@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Chivo');
+
 body {
     background-image: url("../images/Question_Marks.jpg");
 }
@@ -10,11 +12,13 @@ body {
     background-color: bisque;
     margin: auto;
     width: 70%;
-    /* border: 1px solid rebeccapurple; */
     padding: 15px;
+    border-radius: 15px;
+    box-shadow: 10px 10px 20px 0px rgba(0,0,0,0.75);
 }
 
 .textFormatting {
+    font-family: 'Chivo', sans-serif;
     font-size: 50px;
     margin: 20px 0;
     text-align: center;
@@ -24,3 +28,32 @@ img {
     display: block;
     margin: auto;
 }
+
+.rainbow {
+    /* Chrome, Safari, Opera */
+    -webkit-animation: rainbow 0.5s infinite;
+
+    /* Internet Explorer */
+    -ms-animation: rainbow 0.5s infinite;
+
+    /* Standar Syntax */
+    animation: rainbow 0.5s infinite; 
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes rainbow{
+    50%{color: red;}
+    100%{color: #700000;}
+  }
+  
+  /* Internet Explorer */
+  @-ms-keyframes rainbow{
+    50%{color: red;}
+    100%{color: #700000;}
+  }
+  
+  /* Standar Syntax */
+  @keyframes rainbow{
+    50%{color: red;}
+    100%{color: #700000;}
+  }

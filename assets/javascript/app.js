@@ -115,9 +115,13 @@ window.onload = function () {
     // Subtract time from each question until it reaches zero
     function decrementQuestion() {
         questionTimeAllowed--;
+        if (questionTimeAllowed == 5) {
+            $("#timeLeft").addClass("rainbow");
+        }
         $("#timeLeft").text("Time Left: " + questionTimeAllowed);
         if (questionTimeAllowed == 0) {
             userUnanswered++;
+            console.log("Question " + (currentQuestion + 1) + ": You didn't answer this question");
             stopQuestionTimer();
         }
     }
@@ -140,6 +144,7 @@ window.onload = function () {
     // Show results of the question
     function stopQuestionTimer() {
         clearInterval(questionTimer);
+        $("#timeLeft").removeClass("rainbow");
         showQuestionResults();
     }
 
@@ -169,7 +174,7 @@ window.onload = function () {
         $("#questionResultsMessage").text(qResultMessage)
 
         // Show the correct answer
-        $("#questionCorrectAnswer").text("The correct answer is: " + questionCorrectAnswer);
+        $("#questionCorrectAnswer").html("<h5>The correct answer is: " + questionCorrectAnswer + "</h5>");
 
         // Get the image
         $("#questionPicture").attr("src", questionPic);
@@ -225,7 +230,7 @@ window.onload = function () {
             }
 
             // Show the question and answers to the user
-            $("#question").text(questionSentence);
+            $("#question").html("<h5>" + questionSentence + "</h5>");
             $("#timeLeft").text("Time Left: " + questionTimeAllowed);
             $("#answerA").text(answerArray[0]);
             $("#answerA").attr("isCorrectAnswer", answerArray[0] == questionCorrectAnswer ? "true" : "false");
@@ -253,7 +258,7 @@ window.onload = function () {
     $(".textClicking").on("click", function () {
         didUserClickAnswer = true;
         answerIsCorrect = $(this).attr("isCorrectAnswer");
-        console.log("Did you get the right answer? True is yes, false is no -----> " + answerIsCorrect);
+        console.log("Question " + (currentQuestion + 1) + ": Did you get the right answer? True is yes, false is no -----> " + answerIsCorrect);
         if (answerIsCorrect == "true") {
             userCorrectAnswer++;
         } else {
@@ -263,10 +268,10 @@ window.onload = function () {
     });
 
     // Hightlight the box if the user mouses over an answer
-    $(".onMouseOverHighlighting").hover(function(){
+    $(".onMouseOverHighlighting").hover(function () {
         $(this).css("background-color", "darkseagreen");
         $(this).css("border", "3px solid rebeccapurple");
-    }, function(){
+    }, function () {
         $(this).css("background-color", "bisque");
         $(this).css("border", "none");
     })
@@ -303,13 +308,13 @@ window.onload = function () {
         } else if (pctScore >= 0.7) {
             finalMessage = "You might want to read up more on the national parks..."
         } else if (pctScore == 0) {
-            finalMessage = "You didn't get any correct. Even someone randomly clicking answers is bound to get at least one right. Shame on you!!"
+            finalMessage = "You didn't get any correct. Someone randomly clicking answers is bound to get at least one right. Shame on you!!"
         } else {
             finalMessage = "Wikipedia is your friend. Do more reading and try again."
         }
 
         // Set our text to show the user
-        $("#resultsMessage").text(finalMessage);
+        $("#resultsMessage").html("<h5>" + finalMessage + "</h5>");
         $("#resultsCorrect").text("Correct Answers: " + userCorrectAnswer);
         $("#resultsIncorrect").text("Incorrect Answers: " + userIncorrectAnswer);
         $("#resultsNotAnswered").text("Not Answered: " + userUnanswered);
