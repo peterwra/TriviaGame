@@ -262,11 +262,6 @@ window.onload = function () {
         stopQuestionTimer();
     });
 
-    // Restart the game if the user clicks the message on the results screen
-    $("#restartGame").on("click", function () {
-        startTriviaGame();
-    })
-
     // Loop through our questions and track the correct answers, incorrect answers, and unanswered questions
     function startTriviaGame() {
 
