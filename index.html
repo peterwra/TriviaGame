@@ -11,15 +11,18 @@
     <!-- External Script File -->
     <script src="assets/javascript/app.js"></script>
 
+    <!-- CSS File -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
     <title>National Park Trivia Game</title>
 </head>
 <body>
 
     <!-- Header -->
-    <h1>National Park Trivia!</h1>
+    <h1 id="headerId" class="textFormatting">National Park Trivia!</h1>
     
     <!-- Start the game -->
-    <div id="startGame" class="onMouseOverHighlighting" style="border: 1px solid black">Start Trivia Game!</div>
+    <div id="startGame" class="onMouseOverHighlighting textFormatting">Start Trivia Game!</div>
 
     <!-- Trivia Questions -->
     <div id="questionContainer">
@@ -46,7 +49,7 @@
         <div id="resultsCorrect" class="textFormatting"></div>
         <div id="resultsIncorrect" class="textFormatting"></div>
         <div id="resultsNotAnswered" class="textFormatting"></div>
-        <div id="restartGame" class="textFormatting">Click me to try again!</div>
+        <div id="restartGame" class="onMouseOverHighlighting textFormatting">Click me to try again!</div>
     </div>
 
 </body>

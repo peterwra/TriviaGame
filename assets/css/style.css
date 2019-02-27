@@ -1,0 +1,26 @@
+body {
+    background-image: url("../images/Question_Marks.jpg");
+}
+
+#headerId,
+#startGame,
+#questionContainer,
+#questionResults,
+#resultsContainer {
+    background-color: bisque;
+    margin: auto;
+    width: 70%;
+    /* border: 1px solid rebeccapurple; */
+    padding: 15px;
+}
+
+.textFormatting {
+    font-size: 50px;
+    margin: 20px 0;
+    text-align: center;
+}
+
+img {
+    display: block;
+    margin: auto;
+}

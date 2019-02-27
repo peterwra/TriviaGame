@@ -262,6 +262,15 @@ window.onload = function () {
         stopQuestionTimer();
     });
 
+    // Hightlight the box if the user mouses over an answer
+    $(".onMouseOverHighlighting").hover(function(){
+        $(this).css("background-color", "darkseagreen");
+        $(this).css("border", "3px solid rebeccapurple");
+    }, function(){
+        $(this).css("background-color", "bisque");
+        $(this).css("border", "none");
+    })
+
     // Loop through our questions and track the correct answers, incorrect answers, and unanswered questions
     function startTriviaGame() {
 
